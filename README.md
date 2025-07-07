@@ -1,21 +1,28 @@
-ProductInventoryAPI 🛍️
-A robust .NET Web API project built using Database First approach with SQL Server for managing product inventory operations.
+# ProductInventoryAPI 🛍️
 
-🚀 Features
-Database First Approach: EF Core scaffolding from existing SQL Server database
-RESTful API: Complete CRUD operations for product management
-Clean Architecture: Separated concerns with Controllers, Services, and DTOs
-SQL Server Integration: Full SSMS compatibility with optimized queries
-Entity Framework Core: Latest EF Core with database migrations support
-Swagger Documentation: Interactive API documentation and testing
-🛠️ Tech Stack
-.NET 6/7/8 - Web API Framework
-Entity Framework Core - ORM for database operations
-SQL Server - Primary database
-AutoMapper - Object-to-object mapping
-Swagger/OpenAPI - API documentation
-Dependency Injection - Built-in DI container
-📁 Project Structure
+A robust .NET Web API project built using **Database First** approach with SQL Server for managing product inventory operations.
+
+## 🚀 Features
+
+- **Database First Approach**: EF Core scaffolding from existing SQL Server database
+- **RESTful API**: Complete CRUD operations for product management
+- **Clean Architecture**: Separated concerns with Controllers, Services, and DTOs
+- **SQL Server Integration**: Full SSMS compatibility with optimized queries
+- **Entity Framework Core**: Latest EF Core with database migrations support
+- **Swagger Documentation**: Interactive API documentation and testing
+
+## 🛠️ Tech Stack
+
+- **.NET 6/7/8** - Web API Framework
+- **Entity Framework Core** - ORM for database operations
+- **SQL Server** - Primary database
+- **AutoMapper** - Object-to-object mapping
+- **Swagger/OpenAPI** - API documentation
+- **Dependency Injection** - Built-in DI container
+
+## 📁 Project Structure
+
+```
 ProductInventoryAPI/
 ├── Controllers/
 │   └── ProductController.cs          # API endpoints
@@ -31,15 +38,20 @@ ProductInventoryAPI/
 ├── appsettings.json                  # Configuration
 ├── Program.cs                        # Application entry point
 └── Startup.cs                        # Service configuration
-🔧 Setup Instructions
-Prerequisites
-Visual Studio 2022 or VS Code
-.NET 6+ SDK
-SQL Server (LocalDB/Express/Full)
-SQL Server Management Studio (SSMS)
-1. Database Setup
+```
+
+## 🔧 Setup Instructions
+
+### Prerequisites
+- Visual Studio 2022 or VS Code
+- .NET 6+ SDK
+- SQL Server (LocalDB/Express/Full)
+- SQL Server Management Studio (SSMS)
+
+### 1. Database Setup
 Run the following SQL script in SSMS:
 
+```sql
 CREATE DATABASE ProductInventory;
 USE ProductInventory;
 
@@ -57,48 +69,68 @@ INSERT INTO Products (Name, Description, Price, Quantity) VALUES
 ('Laptop', 'High-performance laptop', 55000.00, 10),
 ('Mouse', 'Wireless optical mouse', 1200.00, 50),
 ('Keyboard', 'Mechanical keyboard', 3500.00, 25);
-2. Clone & Install
+```
+
+### 2. Clone & Install
+```bash
 git clone https://github.com/yourusername/ProductInventoryAPI.git
 cd ProductInventoryAPI
 dotnet restore
-3. Configure Connection String
-Update appsettings.json:
+```
 
+### 3. Configure Connection String
+Update `appsettings.json`:
+```json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Database=ProductInventory;Trusted_Connection=True;"
   }
 }
-4. Database First Scaffolding
+```
+
+### 4. Database First Scaffolding
 Install EF Core tools:
-
+```bash
 dotnet tool install --global dotnet-ef
-Generate models from database:
+```
 
+Generate models from database:
+```bash
 dotnet ef dbcontext scaffold "Server=localhost;Database=ProductInventory;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models -f
-5. Run the Application
+```
+
+### 5. Run the Application
+```bash
 dotnet build
 dotnet run
-Visit: https://localhost:7xxx/swagger for API documentation
+```
 
-📚 API Endpoints
-Method	Endpoint	Description
-GET	/api/product	Get all products
-GET	/api/product/{id}	Get product by ID
-POST	/api/product	Create new product
-PUT	/api/product/{id}	Update product
-DELETE	/api/product/{id}	Delete product
-Sample Request/Response
-POST /api/product
+Visit: `https://localhost:7xxx/swagger` for API documentation
 
+## 📚 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/product` | Get all products |
+| GET | `/api/product/{id}` | Get product by ID |
+| POST | `/api/product` | Create new product |
+| PUT | `/api/product/{id}` | Update product |
+| DELETE | `/api/product/{id}` | Delete product |
+
+### Sample Request/Response
+
+**POST `/api/product`**
+```json
 {
   "name": "Smartphone",
   "description": "Latest Android smartphone",
   "price": 25000.00,
   "quantity": 15
 }
-Response
+```
 
+**Response**
+```json
 {
   "id": 4,
   "name": "Smartphone",
@@ -107,37 +139,52 @@ Response
   "quantity": 15,
   "createdAt": "2025-01-15T10:30:00"
 }
-🎯 Key Features Implemented
-Repository Pattern: Clean separation of data access logic
-Service Layer: Business logic encapsulation
-DTO Pattern: Data transfer optimization
-Error Handling: Comprehensive exception management
-Validation: Input validation with Data Annotations
-Logging: Structured logging with ILogger
-Dependency Injection: Loosely coupled architecture
-🧪 Testing
-Run unit tests:
+```
 
+## 🎯 Key Features Implemented
+
+- **Repository Pattern**: Clean separation of data access logic
+- **Service Layer**: Business logic encapsulation
+- **DTO Pattern**: Data transfer optimization
+- **Error Handling**: Comprehensive exception management
+- **Validation**: Input validation with Data Annotations
+- **Logging**: Structured logging with ILogger
+- **Dependency Injection**: Loosely coupled architecture
+
+## 🧪 Testing
+
+Run unit tests:
+```bash
 dotnet test
+```
+
 Test with Postman or use the integrated Swagger UI.
 
-📝 Database First Benefits
-Existing Database: Works with pre-existing SQL Server databases
-DBA Friendly: Database changes managed by DBAs
-Performance: Optimized queries and stored procedures
-Enterprise Ready: Suitable for large-scale applications
-🤝 Contributing
-Fork the repository
-Create a feature branch (git checkout -b feature/amazing-feature)
-Commit changes (git commit -m 'Add amazing feature')
-Push to branch (git push origin feature/amazing-feature)
-Open a Pull Request
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📝 Database First Benefits
 
-📞 Support
+- **Existing Database**: Works with pre-existing SQL Server databases
+- **DBA Friendly**: Database changes managed by DBAs
+- **Performance**: Optimized queries and stored procedures
+- **Enterprise Ready**: Suitable for large-scale applications
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
 For support and queries:
+- Create an issue in the repository
+- Email: your.email@example.com
 
-Create an issue in the repository
-Email: ritwiksinghkkc@gmail.com
-Happy Coding! 🚀
+---
+
+**Happy Coding! 🚀**
